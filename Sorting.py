@@ -8,7 +8,7 @@ from threading import Thread
 def processing_folder(path):
 
     for directory in path.iterdir():
-        
+
         if directory.is_dir():
             if directory in files:
                 continue
@@ -22,6 +22,7 @@ def processing_folder(path):
         files.append(directory)
 
     return files
+
 
 def processing_file(file):
     remove_extension = file.suffix[1:]
@@ -38,7 +39,6 @@ def root_dir():
         return sys.exit(1)
 
     return Path(sys.argv[1])
-
 
 
 def main():
@@ -58,8 +58,6 @@ def main():
         thread.start()
 
 
-famous = set()
-unknown = set()
 files = []
 
 if __name__ == "__main__":
